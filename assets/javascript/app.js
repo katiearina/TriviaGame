@@ -22,9 +22,17 @@ function gameLoad() {
 
 // This function actually starts the game on button press!
 function gameStart() {
-
+	console.log("You clicked the button!");
+	$("#main-content").empty();
 }
 
 //---------------------------------------------------------------------------
 // ACTUAL GAME BITS!
+
+// Load main start page on page load
 gameLoad();
+
+// When "Start Game" button is clicked, start the game!
+$(".btn-info").click(function() {
+  gameStart();
+});
