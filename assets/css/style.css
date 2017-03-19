@@ -1,0 +1,24 @@
+body {
+	background-image: url("../images/476332944.jpg");
+}
+
+#main-content {
+	background-color: #CEEFDE;
+	margin-top: 50px;
+	min-height: 500px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ACE4C7;
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+}
+
+.btn-info {
+	width: 250px;
+	height: 50px;
+	margin: 150px;
+	font-size: 24px;
+}
