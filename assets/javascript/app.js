@@ -1,6 +1,8 @@
 //---------------------------------------------------------------------------
 // VARIABLE DECLARATIONS!
 var startButton;
+var i;
+var number = 6;
 
 var walrusQuestions =[{
     question: "What is scientific name for the walrus?",
@@ -32,7 +34,7 @@ var walrusQuestions =[{
     correctAnswer: 2
 }, {
  	question: "The Latin name for walrus (Odobenus Rosmarus) means which of the following?",
-    choices: ["XXX", "Tooth-walking sea-horse", "XXX", "XXX"],
+    choices: ["Whisker-bearing ocean-beast", "Tooth-walking sea-horse", "XXX", "XXX"],
     correctAnswer: 2
 }];
 
@@ -40,6 +42,22 @@ var walrusQuestions =[{
 // FUNCTION DECLARATIONS!
 
 // setTimeout(gameLoad, 1000);
+function run() {
+	intervalId = setInterval(decrement, 1000);
+}
+
+function decrement() {
+	number--;
+    $("#countdown").html("<h2>" + number + "</h2>");
+		if (number === 0) {
+		stop();
+		setTimeout(nextQuestion, 1000);
+		}
+}
+
+function stop() {
+	clearInterval(intervalId);
+}
 
 // This function starts game over completely
 function createStartButton() {
@@ -50,19 +68,46 @@ function createStartButton() {
 }
 
 function gameLoad() {
+	$(".quiz-div").hide();
 	createStartButton();
-	console.log("I've loaded gameLoad!");
-	console.log(walrusQuestions[0].question);
-	console.log(walrusQuestions[0].choices[1]);
-	console.log(walrusQuestions[0].correctAnswer);
-	var right = walrusQuestions[0].correctAnswer;
-	console.log(walrusQuestions[0].choices[right]);
+	// console.log("I've loaded gameLoad!");
+	// console.log(walrusQuestions[0].question);
+	// console.log(walrusQuestions[0].choices[1]);
+	// console.log(walrusQuestions[0].correctAnswer);
+	// var right = walrusQuestions[0].correctAnswer;
+	// console.log(walrusQuestions[0].choices[right]);
+}
+
+function gameStop() {
+	$("#main-heading").html("<h1>Walrus Trivia Game!</h1>");
+	$(".quiz-div").hide();
+	createStartButton();
+	stop();
 }
 
 // This function actually starts the game on button press!
 function gameStart() {
 	console.log("You clicked the button!");
-	$("#main-content").empty();
+	run();
+	$(".btn-info").hide();
+	$(".quiz-div").show();
+	i = 0;
+	$("#question-div").html("<h3>" + walrusQuestions[i].question + "</h3");
+}
+
+function nextQuestion() {
+	if (i < walrusQuestions.length) {
+	number = 6;
+	run();
+	i = i + 1;
+	// console.log(walrusQuestions[i].question);
+	$("#question-div").html("<h3>" + walrusQuestions[i].question + "</h3");
+	$("#answer-1").html("<h4>" + walrusQuestions[i].choices[0] + "</h4");
+	console.log(walrusQuestions[i].choices[0]);
+}
+	else {
+		gameStop();
+	}
 }
 
 //---------------------------------------------------------------------------
@@ -75,3 +120,6 @@ gameLoad();
 $(".btn-info").click(function() {
   gameStart();
 });
+
+
+

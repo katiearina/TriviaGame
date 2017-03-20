@@ -20,6 +20,12 @@ h1 {
 	color: #69CE9A;
 }
 
+#question-div {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #8AD9B0;
+}
+
 .btn-info {
 	padding: 10px 30px 10px 30px;
 	margin: 150px;
