@@ -93,21 +93,31 @@ function gameStart() {
 	$(".quiz-div").show();
 	i = 0;
 	$("#question-div").html("<h3>" + walrusQuestions[i].question + "</h3");
+	$("#answer-1").html("<h4>" + walrusQuestions[i].choices[0] + "</h4");
+	$("#answer-2").html("<h4>" + walrusQuestions[i].choices[1] + "</h4");
+	$("#answer-3").html("<h4>" + walrusQuestions[i].choices[2] + "</h4");
+	$("#answer-4").html("<h4>" + walrusQuestions[i].choices[3] + "</h4");
 }
 
 function nextQuestion() {
+	i = i + 1;
 	if (i < walrusQuestions.length) {
 	number = 6;
 	run();
-	i = i + 1;
 	// console.log(walrusQuestions[i].question);
 	$("#question-div").html("<h3>" + walrusQuestions[i].question + "</h3");
 	$("#answer-1").html("<h4>" + walrusQuestions[i].choices[0] + "</h4");
-	console.log(walrusQuestions[i].choices[0]);
+	$("#answer-2").html("<h4>" + walrusQuestions[i].choices[1] + "</h4");
+	$("#answer-3").html("<h4>" + walrusQuestions[i].choices[2] + "</h4");
+	$("#answer-4").html("<h4>" + walrusQuestions[i].choices[3] + "</h4");
 }
 	else {
 		gameStop();
 	}
+}
+
+function alertConsole() {
+	alert("You clicked this!");
 }
 
 //---------------------------------------------------------------------------
@@ -121,5 +131,6 @@ $(".btn-info").click(function() {
   gameStart();
 });
 
+$(document).on("click", ".answers-div", alertConsole);
 
 

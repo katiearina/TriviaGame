@@ -26,6 +26,18 @@ h1 {
 	border-color: #8AD9B0;
 }
 
+.answers-div {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #8AD9B0;
+	margin-top: 20px;
+}
+
+.answers-div:hover {
+	background-color: red;
+	cursor: pointer;
+}
+
 .btn-info {
 	padding: 10px 30px 10px 30px;
 	margin: 150px;
