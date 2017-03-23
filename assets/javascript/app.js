@@ -2,6 +2,7 @@
 // VARIABLE DECLARATIONS!
 var startButton;
 var i;
+var right;
 var number = 6;
 
 var walrusQuestions =[{
@@ -59,7 +60,7 @@ function stop() {
 	clearInterval(intervalId);
 }
 
-// This function starts game over completely
+// This function starts game over completely/creates start button
 function createStartButton() {
 	startButton = $("<button>");
 	startButton.addClass("btn btn-info");
@@ -97,6 +98,11 @@ function gameStart() {
 	$("#answer-2").html("<h4>" + walrusQuestions[i].choices[1] + "</h4");
 	$("#answer-3").html("<h4>" + walrusQuestions[i].choices[2] + "</h4");
 	$("#answer-4").html("<h4>" + walrusQuestions[i].choices[3] + "</h4");
+	console.log("I've loaded gameStart!");
+	console.log(walrusQuestions[i].question);
+	console.log(walrusQuestions[i].correctAnswer);
+	right = walrusQuestions[i].correctAnswer;
+	console.log(walrusQuestions[i].choices[right]);
 }
 
 function nextQuestion() {
@@ -110,6 +116,11 @@ function nextQuestion() {
 	$("#answer-2").html("<h4>" + walrusQuestions[i].choices[1] + "</h4");
 	$("#answer-3").html("<h4>" + walrusQuestions[i].choices[2] + "</h4");
 	$("#answer-4").html("<h4>" + walrusQuestions[i].choices[3] + "</h4");
+	console.log("I've loaded nextQuestion!");
+	console.log(walrusQuestions[i].question);
+	console.log(walrusQuestions[i].correctAnswer);
+	right = walrusQuestions[i].correctAnswer;
+	console.log(walrusQuestions[i].choices[right]);
 }
 	else {
 		gameStop();
