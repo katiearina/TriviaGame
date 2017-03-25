@@ -1,5 +1,5 @@
 body {
-	background-image: url("../images/476332944.jpg");
+	background-image: url("../images/g-walrus-tiles-small.jpg");
 	font-family: 'Nixie One', cursive;
 }
 
@@ -26,32 +26,34 @@ h1 {
 	border-color: #8AD9B0;
 }
 
-.answers-div {
+.answers {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #8AD9B0;
+	padding: 10px;
 	margin-top: 20px;
 }
 
-.answers-div:hover {
+.answers:hover {
 	background-color: red;
 	cursor: pointer;
 }
 
-.btn-info {
+.start-button {
 	padding: 10px 30px 10px 30px;
-	margin: 150px;
+	margin-top: 150px;
 	font-size: 24px;
 	text-align: center;
 	background-color: #47C383;
 	border-style: solid;
 	border-width: 2px;
 	border-color: #8AD9B0;
+	color: white;
 }
 
-.btn-info:hover {
+.start-button:hover {
 	padding: 10px 30px 10px 30px;
-	margin: 150px;
+	margin-top: 150px;
 	font-size: 24px;
 	text-align: center;
 	background-color: #8AD9B0;
