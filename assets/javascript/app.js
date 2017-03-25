@@ -92,11 +92,11 @@ function gameStop() {
 		+ "<h3>You answered " + losses + " questions incorrectly</h3>"
 		+ "<h4>You left " + unanswered + " questions unanswered</h4>");
 	if (wins >= 5) {
-		$("#quiz-content").append("<p><img src='../images/walrus-clap.gif'></p>");
+		$("#quiz-content").append("<p><img src='TriviaGame/assets/images/walrus-clap.gif'></p>");
 		$("#quiz-content").append("<button class='reset-button' onclick='gameLoad()'>Play Again!</button>");
 	}
 	else {
-		$("#quiz-content").append("<p><img src='../images/walrus-crying.gif'></p>");
+		$("#quiz-content").append("<p><img src='TriviaGame/assets/images/walrus-crying.gif'></p>");
 		$("#quiz-content").append("<button class='reset-button' onclick='gameLoad()'>Play Again!</button>");
 	}
 }
