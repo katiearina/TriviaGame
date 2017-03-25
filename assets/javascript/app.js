@@ -92,7 +92,7 @@ function gameStop() {
 		+ "<h3>You answered " + losses + " questions incorrectly</h3>"
 		+ "<h4>You left " + unanswered + " questions unanswered</h4>");
 	if (wins >= 5) {
-		$("#quiz-content").append('<p><img src="../images/walrus-clap.gif"></p>');
+		$("#quiz-content").append("<p><img src='../images/walrus-clap.gif'></p>");
 		$("#quiz-content").append("<button class='reset-button' onclick='gameLoad()'>Play Again!</button>");
 	}
 	else {
@@ -180,7 +180,7 @@ $("body").on("click", ".answers", function(event){
 		wins++;
 		console.log("Wins: " + wins);
 		stop();
-		setTimeout(nextQuestion, 0);
+		setTimeout(nextQuestion, 3000);
 		// nextQuestion();
 	}
 	else {
@@ -189,7 +189,7 @@ $("body").on("click", ".answers", function(event){
 		losses++;
 		console.log("Losses: " + losses);
 		stop();
-		setTimeout(nextQuestion, 0);
+		setTimeout(nextQuestion, 3000);
 		// nextQuestion();
 	}
 });
