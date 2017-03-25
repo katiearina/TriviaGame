@@ -163,7 +163,7 @@ function alertConsole() {
 // ACTUAL GAME BITS!
 
 // Load main start page on page load
-gameLoad();
+$(document).ready(gameLoad);
 
 // When "Start Game" button is clicked, start the game!
 $("body").on("click", ".start-button", function(event){
