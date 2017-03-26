@@ -39,7 +39,7 @@ var walrusQuestions =[{
     correctAnswer: "19",
     explanation: " "
 }, {
- 	question: "On the flip side, walruses are known to stay awake for this many hours at a time while at sea",
+ 	question: "On the flip side, walruses are known to stay awake for how many hours at a time while at sea?",
     choices: ["10", "19", "24", "84"],
     correctAnswer: "84",
     explanation: " "
@@ -92,11 +92,11 @@ function gameStop() {
 		+ "<h3>You answered " + losses + " questions incorrectly</h3>"
 		+ "<h4>You left " + unanswered + " questions unanswered</h4>");
 	if (wins >= 5) {
-		$("#quiz-content").append("<p><img src='../images/walrus-clap.gif'></p>");
+		$("#quiz-content").append("<p><img src='https://katiearina.github.io/TriviaGame/assets/images/walrus-clap.gif'></p>");
 		$("#quiz-content").append("<button class='reset-button' onclick='gameLoad()'>Play Again!</button>");
 	}
 	else {
-		$("#quiz-content").append("<p><img src='../images/walrus-crying.gif'></p>");
+		$("#quiz-content").append("<p><img src='https://katiearina.github.io/TriviaGame/assets/images/walrus-crying.gif'></p>");
 		$("#quiz-content").append("<button class='reset-button' onclick='gameLoad()'>Play Again!</button>");
 	}
 }
