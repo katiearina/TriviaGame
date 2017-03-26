@@ -1,11 +1,9 @@
 //---------------------------------------------------------------------------
 // VARIABLE DECLARATIONS!
-var startButton;
 var i;
 var wins = 0;
 var losses = 0;
 var unanswered = 0;
-var right;
 var number;
 
 var walrusQuestions =[{
@@ -54,7 +52,7 @@ var walrusQuestions =[{
     correctAnswer: "Carnivores",
     explanation: "Walruses typically eat clams and crustaceans, but have been known to eat seals and other mammals."
 }, {
- 	question: "The Latin name for walrus (Odobenus Rosmarus) means which of the following?",
+ 	question: "The Latin name for walrus (Odobenus rosmarus) means which of the following?",
     choices: ["Whisker-bearing ocean-dweller", "Tooth-walking sea-horse", "Blunt-muzzled whisker-cow", "Odorous toothed-cow"],
     correctAnswer: "Tooth-walking sea-horse",
     explanation: " "
@@ -63,10 +61,12 @@ var walrusQuestions =[{
 //---------------------------------------------------------------------------
 // FUNCTION DECLARATIONS!
 
+// Sets interval timer
 function run() {
 	countdownTimer = setInterval(decrement, 1000);
 }
 
+// Stops interval timer
 function stop() {
 	clearInterval(countdownTimer);
 }
@@ -76,7 +76,7 @@ function createStartButton() {
 	$("#quiz-content").html("<button class='start-button'>Start the Game!</button>");
 }
 
-// This function runs on page load
+// This function runs on page load (resets question scores, creates Start Button)
 function gameLoad() {
 	createStartButton();
 	wins = 0;
@@ -84,7 +84,8 @@ function gameLoad() {
 	unanswered = 0;
 }
 
-
+// This function runs after all questions are answered to stop the countdown, populate question scores, and populates respective 
+// image if more than half of the questions are answered correctly.
 function gameStop() {
 	stop();
 	$("#quiz-content").html
@@ -105,17 +106,20 @@ function gameStop() {
 function decrement() {
     $("#countdown-timer").html("<h4>You have " + number + " seconds remaining</h4>");
     number--;
+    	// This makes it show the number 0 instead of stopping at 1
 		if (number < 0) {
 		$("#countdown-timer").html("<h4>Time's up!</h4>");
 		stop();
+		// Waits one second before displaying next question
 		setTimeout(nextQuestion, 1000);
+		// If question goes unanswered, increase unanswered count.
 		unanswered++;
 		}
 }
 
-// This function actually starts the game on button press!
+// This function actually starts the game on Start button press!
 function gameStart() {
-	console.log("You clicked the button!");
+	// console.log("You clicked the button!");
 	i = 0;
 	$("#countdown-timer").html("<h4>You have " + 30 + " seconds remaining</h4>");
 	number = 29;
@@ -128,18 +132,27 @@ function gameStart() {
 	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[3] + "</h4");
 }
 
+// There may be a way to code this inside the gameStart function, but I found it less problematic
+// to separate them out this way. I also tried using a for loop for both the question creation and
+// the answer keys (to make it relative to the number of questions in the object), but it just wouldn't
+// work the way I wanted so I went this route instead. Not pretty and not dry, but functions the way
+// I want it to.
+// This function populates the next question in the object
 function nextQuestion() {
 	i = i + 1;
+	// To populate initial count on page. If I didn't do it this way, it took a full second for the
+	// count text to show up at all and then would start at 29. There may be better ways to do this,
+	// but this was the way that worked best/most consistently.
 	$("#countdown-timer").html("<h4>You have " + 30 + " seconds remaining</h4>");
 	number = 29;
 	run();
+	// I tried working through this problem in a for loop, but kept running into issues, 
+	// so decided just to separate this question out for now since it only had two answers instead of 4.
 	if (i === 2) {
 	$("#quiz-content").empty();
 	$("#quiz-content").append("<h3>" + walrusQuestions[i].question + "</h3");
 	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[0] + "</h4");
 	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[1] + "</h4");
-	// $("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[2] + "</h4");
-	// $("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[3] + "</h4");
 }
 	else if (i < walrusQuestions.length && i != 2) {
 	$("#quiz-content").empty();
@@ -149,14 +162,11 @@ function nextQuestion() {
 	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[2] + "</h4");
 	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[3] + "</h4");
 }
+	// When questions run out, stop game.
 	else {
 		$("#countdown-timer").empty();
 		gameStop();
 	}
-}
-
-function alertConsole() {
-	alert("You clicked this!");
 }
 
 //---------------------------------------------------------------------------
@@ -171,25 +181,26 @@ $("body").on("click", ".start-button", function(event){
 	gameStart();
 });
 
-// 
+// On click of answers, if the button text equals the correct answer text,
+// show win page and increase win count, stop timer, and wait 3 seconds before
+// going to next question
 $("body").on("click", ".answers", function(event){
-	console.log($(this).text());
+	// console.log($(this).text());
 	if ($(this).text() === walrusQuestions[i].correctAnswer) {
-		// alert("You did it!");
 		$("#quiz-content").html("<h2>Correct!</h2>" + "<p>" + walrusQuestions[i].explanation + "</p>");
 		wins++;
-		console.log("Wins: " + wins);
+		// console.log("Wins: " + wins);
 		stop();
 		setTimeout(nextQuestion, 3000);
-		// nextQuestion();
 	}
+	// On click of answers, if the button does not equal the correct answer text,
+	// show loss page and increase loss count, stop timer, and wait 3 seconds before
+	// going to next question
 	else {
-		// alert("Womp womp");
 		$("#quiz-content").html("<h2>Incorrect</h2> <h4>The answer was: " + walrusQuestions[i].correctAnswer + "</h4>" + "<p>" + walrusQuestions[i].explanation + "</p>");
 		losses++;
-		console.log("Losses: " + losses);
+		// console.log("Losses: " + losses);
 		stop();
 		setTimeout(nextQuestion, 3000);
-		// nextQuestion();
 	}
 });

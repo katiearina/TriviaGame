@@ -1,8 +1,10 @@
+/* Styling for background/body text */
 body {
 	background-image: url("../images/476332944-magenta.jpg");
 	font-family: 'Raleway', sans-serif;
 }
 
+/* Styling for main box with content in it */
 .content-box {
 	background-color: #CEEFDE;
 	margin-top: 50px;
@@ -13,10 +15,7 @@ body {
 	text-align: center;
 }
 
-#quiz-content {
-	text-align: center;
-}
-
+/* Styling for page title/header */
 h1 {
 	text-align: center;
 	font-family: 'Monoton', cursive;
@@ -24,6 +23,7 @@ h1 {
 	color: #69CE9A;
 }
 
+/* Styling for buttons used to start game/reset game */
 .start-button, .reset-button {
 	padding: 10px 30px 10px 30px;
 	margin: 150px 0px 150px 0px;
@@ -36,10 +36,14 @@ h1 {
 	color: white;
 }
 
+/* Specific styling for reset button so it 
+doesn't run into images/bottom border */
 .reset-button {
 	margin: 20px 0px 40px 0px;
 }
 
+/* Styling for buttons on hover (using color palette
+found on colorhexa.com with my starting colors) */
 .start-button:hover, .reset-button:hover {
 	padding: 10px 30px 10px 30px;
 	font-size: 24px;
@@ -50,6 +54,8 @@ h1 {
 	border-color: #8dc650;
 }
 
+/* Basic styling for answer panels (border is in place so panels
+don't jump around when I add a border on hover) */
 .answers {
 	padding: 20px;
 	margin: 20px 150px 20px 150px;
@@ -57,16 +63,24 @@ h1 {
 	font-weight: bold;
 	border-style: solid;
 	border-width: 2px;
-	border-color: #CEEFDE;
+	border-color: transparent;
 }
 
+/* Fun hover colors (again from color palette on colorhexa.com) */
 .answers:hover {
 	background-color: #B08AD9;
 	cursor: pointer;
 	border-color: #9664cc;
 }
 
+/* Styling around image that populates when you win or lose */
 img {
+	border-style: solid;
+	border-width: 2px;
+	border-color: #d971b1;
+	outline-style: solid;
+	outline-width: 3px;
+	outline-color: #c83690;
 	margin: 10px;
 }
 
