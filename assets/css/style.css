@@ -55,11 +55,15 @@ h1 {
 	margin: 20px 150px 20px 150px;
 	text-align: center;
 	font-weight: bold;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #CEEFDE;
 }
 
 .answers:hover {
 	background-color: #B08AD9;
 	cursor: pointer;
+	border-color: #9664cc;
 }
 
 img {
