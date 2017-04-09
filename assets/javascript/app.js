@@ -125,11 +125,11 @@ function gameStart() {
 	number = 29;
 	run();
 	$("#quiz-content").empty();
-	$("#quiz-content").append("<h3>" + walrusQuestions[i].question + "</h3");
-	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[0] + "</h4");
-	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[1] + "</h4");
-	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[2] + "</h4");
-	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[3] + "</h4");
+	$("#quiz-content").append("<h3>" + walrusQuestions[i].question + "</h3>");
+	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[0] + "</h4>");
+	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[1] + "</h4>");
+	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[2] + "</h4>");
+	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[3] + "</h4>");
 }
 
 // There may be a way to code this inside the gameStart function, but I found it less problematic
@@ -150,17 +150,17 @@ function nextQuestion() {
 	// so decided just to separate this question out for now since it only had two answers instead of 4.
 	if (i === 2) {
 	$("#quiz-content").empty();
-	$("#quiz-content").append("<h3>" + walrusQuestions[i].question + "</h3");
-	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[0] + "</h4");
-	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[1] + "</h4");
+	$("#quiz-content").append("<h3>" + walrusQuestions[i].question + "</h3>");
+	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[0] + "</h4>");
+	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[1] + "</h4>");
 }
 	else if (i < walrusQuestions.length && i != 2) {
 	$("#quiz-content").empty();
-	$("#quiz-content").append("<h3>" + walrusQuestions[i].question + "</h3");
-	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[0] + "</h4");
-	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[1] + "</h4");
-	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[2] + "</h4");
-	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[3] + "</h4");
+	$("#quiz-content").append("<h3>" + walrusQuestions[i].question + "</h3>");
+	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[0] + "</h4>");
+	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[1] + "</h4>");
+	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[2] + "</h4>");
+	$("#quiz-content").append("<h4 class='answers'>" + walrusQuestions[i].choices[3] + "</h4>");
 }
 	// When questions run out, stop game.
 	else {
